@@ -1,0 +1,70 @@
+
+/* Add a linear-gradient CSS styling to the page which matches the mockup. 
+This should style both the background and the search bar.*/
+
+
+* {
+  /* box-sizing: border-box; */
+}
+
+:focus {
+ /* TODO */
+}
+
+body {
+  /* TODO */
+}
+
+input {
+ /* TODO */
+}
+
+.search-container {
+  border: 5px solid yellow;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  top: 32%;
+  left: 42%;
+}
+.search-container input,
+.search-container .suggestions {
+}
+.search-container input {
+}
+.search-container .suggestions {
+   border: 5px solid plum;
+}
+
+ul {
+  border: 5px solid forestgreen;
+}
+ul.has-suggestions {
+  /* TODO */
+}
+ul li {
+  /* TODO */
+}
+ul li:hover {
+  /* TODO */
+}
+
+input {
+
+   border-radius: 33px;
+   background: whitesmoke;
+   border: 2px solid lightgray;
+   font-size: 18px;
+   height: 40px;
+   padding: 7px 8px;
+   color: darkslategray;
+   box-shadow: none;
+   max-width: 600px;
+   width: 400px;
+   
+}
+input:focus{
+  background-color: lightgrey;
+  border-color: blue;
+  box-shadow: 1px 1px 0 blue;
+}
