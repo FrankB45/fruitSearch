@@ -5,14 +5,21 @@ This should style both the background and the search bar.*/
 
 * {
   /* box-sizing: border-box; */
+  
 }
 
 :focus {
  /* TODO */
 }
 
+html{
+  height: 100%;
+}
+
 body {
-  /* TODO */
+  /* https://stackoverflow.com/questions/48502338/how-to-remove-the-stripes-that-appears-when-using-linear-gradient-property */
+  background-image: linear-gradient(to bottom right, yellow, red);
+  margin: revert;
 }
 
 input {
@@ -20,51 +27,85 @@ input {
 }
 
 .search-container {
-  border: 5px solid yellow;
+  /*border: 5px solid yellow;*/
   position: absolute;
   align-items: center;
   justify-content: center;
   top: 32%;
-  left: 42%;
+  left: 37%;
+
 }
+
+.search-background {
+
+  background-color: navajowhite;
+
+  border-radius: 33px;
+
+}
+
+
 .search-container input,
 .search-container .suggestions {
 }
 .search-container input {
 }
 .search-container .suggestions {
-   border: 5px solid plum;
+   /*border: 5px solid plum;*/
 }
 
 ul {
-  border: 5px solid forestgreen;
+  /*border: 5px solid forestgreen;*/
+  list-style-type: none;
+  font-family: 'Roboto Mono', monospace;
 }
 ul.has-suggestions {
   /* TODO */
 }
 ul li {
   /* TODO */
+  padding: 5px 5px;
+  width: 80%;
+  margin: 2px 2px;
+  border-radius: 33px;
+  padding-left: 40px
 }
 ul li:hover {
   /* TODO */
 }
 
-input {
+ul li.highlighted {
 
+  background-color: orangered;
+
+}
+
+input {
+  font-family: 'Roboto Mono', monospace;
    border-radius: 33px;
    background: whitesmoke;
-   border: 2px solid lightgray;
+   border: 2px solid orange;
    font-size: 18px;
    height: 40px;
    padding: 7px 8px;
-   color: darkslategray;
+   color: black;
    box-shadow: none;
    max-width: 600px;
    width: 400px;
-   
+   padding-left: 40px;
+   :focus{
+    background-color: navajowhite;
+    border: 2px solid red;
+    box-shadow: 1px 1px 0 red;
+  }
 }
 input:focus{
-  background-color: lightgrey;
-  border-color: blue;
-  box-shadow: 1px 1px 0 blue;
+  background-color: navajowhite;
+  border: 2px solid red;
+  box-shadow: 1px 1px 0 red;
+}
+:focus-visible{
+  background-color: navajowhite;
+  border: 2px solid red;
+  box-shadow: 1px 1px 0 red;
 }
