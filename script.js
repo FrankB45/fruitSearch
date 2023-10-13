@@ -31,11 +31,11 @@ function searchHandler(e)
 
 	//Toggle Search CSS for background
 
-	if(matchedFruit.length == 0)
+	if(matchedFruit.length <= 1)
 	{
 		searchCont.classList.remove("search-background");
 	}
-	if(matchedFruit.length > 0 && !searchCont.classList.contains("search-background"))
+	if(matchedFruit.length > 1 && !searchCont.classList.contains("search-background"))
 	{
 		searchCont.classList.add("search-background");
 	}
@@ -67,6 +67,13 @@ function showSuggestions(results, inputVal) {
 
 	suggestions.innerHTML = '';
 
+	// 0 or 1 Suggestions should not be shown
+	if(results.length <= 1)
+	{
+		return;
+	}
+
+	//Creates an element for each suggested fruit. Attached event listeners for highlighting and using a suggestion.
 	results.forEach(n => {
 
 		let suggElmt = document.createElement("li");
