@@ -13,26 +13,33 @@ This should style both the background and the search bar.*/
 }
 
 html{
-  height: 100%;
+  
 }
 
 body {
   /* https://stackoverflow.com/questions/48502338/how-to-remove-the-stripes-that-appears-when-using-linear-gradient-property */
   background-image: linear-gradient(to bottom right, yellow, red);
-  margin: revert;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 input {
  /* TODO */
+ /* position: static; */
 }
+
 
 .search-container {
   /*border: 5px solid yellow;*/
+  
   position: absolute;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
+  
   top: 32%;
-  left: 37%;
+  /* left: 37%; */
 
 }
 
@@ -44,24 +51,12 @@ input {
 
 }
 
-
-.search-container input,
-.search-container .suggestions {
-}
-.search-container input {
-}
-.search-container .suggestions {
-   /*border: 5px solid plum;*/
-}
-
 ul {
   /*border: 5px solid forestgreen;*/
   list-style-type: none;
   font-family: 'Roboto Mono', monospace;
 }
-ul.has-suggestions {
-  /* TODO */
-}
+
 ul li {
   /* TODO */
   padding: 5px 5px;
@@ -70,9 +65,7 @@ ul li {
   border-radius: 33px;
   padding-left: 40px
 }
-ul li:hover {
-  /* TODO */
-}
+
 
 ul li.highlighted {
 
@@ -108,4 +101,24 @@ input:focus{
   background-color: navajowhite;
   border: 2px solid red;
   box-shadow: 1px 1px 0 red;
+}
+
+
+
+
+ul li:hover {
+  /* TODO */
+}
+
+ul.has-suggestions {
+  /* TODO */
+}
+
+.search-container input,
+.search-container .suggestions {
+}
+.search-container input {
+}
+.search-container .suggestions {
+   /*border: 5px solid plum;*/
 }

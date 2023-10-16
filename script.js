@@ -12,18 +12,21 @@ It also should not matter if a user types upper or lower case letters.
 */
 function search(str) {
 	let results = [];
-	if(str != '')
-	{
+	if (str != '') {
 		results = fruit.filter(n => n.toLowerCase().includes(str.toLowerCase()));
+	}
+	//If the input string is an exact match to the output filter dont return anything so nothing displays
+	if (results != []) {
+		if (str == results[0])
+			return [];
 	}
 	return results;
 }
 
-function searchHandler(e) 
-{
+function searchHandler(e) {
 	//Get Input
 	let fruitInput = input.value;
-	console.log(fruitInput);
+	// console.log(`Fruit Input: ${fruitInput}`);
 
 	//Search Results
 
@@ -31,33 +34,29 @@ function searchHandler(e)
 
 	//Toggle Search CSS for background
 
-	if(matchedFruit.length <= 1)
-	{
+	if (matchedFruit.length == 0) {
 		searchCont.classList.remove("search-background");
 	}
-	if(matchedFruit.length > 1 && !searchCont.classList.contains("search-background"))
-	{
+	if (matchedFruit.length > 0 && !searchCont.classList.contains("search-background")) {
 		searchCont.classList.add("search-background");
 	}
 
 	//Sort Results by Length and Alphabet
 
-	let sortedFruit = matchedFruit.sort((a,b) => {
-		if(a.length != b.length)
-		{
+	let sortedFruit = matchedFruit.sort((a, b) => {
+		if (a.length != b.length) {
 			return a.length > b.length;
-		} else
-		{
+		} else {
 			return a > b;
 		}
 	});
-	console.log(sortedFruit);
-	
+	// console.log(`Sorted Fruit: ${sortedFruit}`);
+
 	//Show Suggestions
 
-	showSuggestions(sortedFruit,fruitInput);
+	showSuggestions(sortedFruit, fruitInput);
 
-	
+
 
 }
 
@@ -67,9 +66,8 @@ function showSuggestions(results, inputVal) {
 
 	suggestions.innerHTML = '';
 
-	// 0 or 1 Suggestions should not be shown
-	if(results.length <= 1)
-	{
+	// 0 Suggestions should not be shown
+	if (results.length == 0) {
 		return;
 	}
 
@@ -77,13 +75,11 @@ function showSuggestions(results, inputVal) {
 	results.forEach(n => {
 
 		let suggElmt = document.createElement("li");
-		
+
 		suggElmt.innerText = n;
 
-		suggElmt.addEventListener("dbclick",useSuggestion);
-
-		suggElmt.addEventListener("mouseover",toggleHighlightSuggestion);
-		suggElmt.addEventListener("mouseout",toggleHighlightSuggestion);
+		suggElmt.addEventListener("mouseover", toggleHighlightSuggestion);
+		suggElmt.addEventListener("mouseout", toggleHighlightSuggestion);
 
 		suggestions.appendChild(suggElmt);
 
@@ -106,13 +102,13 @@ populate the Search Bar with the suggestion. Add this function to the event list
 */
 function useSuggestion(e) {
 
-	console.log('You like the suggestion ' + e.target.outerText);
-	console.log(console.dir(e));
+	// console.log('You like the suggestion ' + e.target.outerText);
+	// console.log(console.dir(e));
 
 	document.querySelector("input#fruit").value = e.target.outerText;
 
 	searchHandler();
-	
+
 }
 
 /*
@@ -122,8 +118,7 @@ Write a function which highlights the suggestion. Attach this function to the ev
 ---------
 */
 
-function toggleHighlightSuggestion(e) 
-{
+function toggleHighlightSuggestion(e) {
 	e.target.classList.toggle("highlighted");
 }
 
